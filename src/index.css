@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 248 250 252; --surface: 255 255 255; --ink: 15 23 42; --muted: 71 85 105; --line: 203 213 225;
+}
+.dark {
+  --bg: 6 10 24; --surface: 15 23 53; --ink: 241 245 249; --muted: 148 163 184; --line: 51 65 105;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-bg text-ink font-sans antialiased; overflow-x: hidden; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+@layer components {
+  .glass { @apply bg-surface/60 backdrop-blur-xl border border-line/60 rounded-2xl shadow-lg shadow-black/5; }
+  .grad-text { @apply bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400; }
+  .btn-primary { @apply btn bg-gradient-to-r from-violet-600 to-cyan-500 text-white shadow-lg shadow-violet-500/25 hover:-translate-y-0.5 hover:shadow-cyan-500/30; }
+  .btn-ghost { @apply btn border border-line bg-surface/40 text-ink hover:border-cyan-400 hover:text-cyan-500; }
+  .chip { @apply inline-flex items-center rounded-full border border-line/70 bg-bg/40 px-3 py-1 text-xs font-medium text-muted; }
+}
